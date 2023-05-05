@@ -23,12 +23,6 @@
                          <span class="text">Dashboard</span>
                     </a>
                </li>
-               <li>
-                    <a href="ürün_kontrol.html">
-                         <i class='bx bxs-shopping-bag-alt'></i>
-                         <span class="text">Ürün Kontrol</span>
-                    </a>
-               </li>
                <li class="active">
                     <a href="stok_kontrol.php">
                          <i class='bx bxs-doughnut-chart'></i>
@@ -36,7 +30,13 @@
                     </a>
                </li>
                <li>
-                    <a href="ürün_satis.html">
+                    <a href="urun_kontrol.html">
+                         <i class='bx bxs-shopping-bag-alt'></i>
+                         <span class="text">Ürün Kontrol</span>
+                    </a>
+               </li>
+               <li>
+                    <a href="urun_satis.php">
                          <i class='bx bxs-cart'></i>
                          <span class="text">Ürün Satış</span>
                     </a>
@@ -54,16 +54,16 @@
      <section id="content">
           <nav>
 			<i class='bx bx-menu' ></i>
-			<a href="#" class="nav-link">Categories</a>
+			<!-- <a href="#" class="nav-link">Categories</a> -->
 			<form action="#">
 				<div class="form-input">
-					<input type="search" placeholder="Search...">
-					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+					<!-- <input type="search" placeholder="Search...">
+					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button> -->
 				</div>
 			</form>
-               <i class='bx bxs-moon'></i>
+               <!-- <i class='bx bxs-moon'></i>
 			<input type="checkbox" id="switch-mode" hidden>
-			<label for="switch-mode" class="switch-mode"></label>
+			<label for="switch-mode" class="switch-mode"></label> -->
 		</nav>
           <main>
                <div class="head-title">

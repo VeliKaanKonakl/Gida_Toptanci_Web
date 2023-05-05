@@ -535,11 +535,6 @@ body {
 	}
 }
 
-
-
-
-
-
 @media screen and (max-width: 576px) {
 	#content nav form .form-input input {
 		display: none;
@@ -599,8 +594,9 @@ margin-bottom: 5px;
 display: block;
 }
 
+
 input[type="text"],
-input[type="number"] {
+input[type="number"]{
 padding: 10px;
 border: none;
 border-radius: 5px;

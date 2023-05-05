@@ -24,19 +24,19 @@
                     </a>
                </li>
                <li>
-                    <a href="ürün_kontrol.html">
-                         <i class='bx bxs-shopping-bag-alt'></i>
-                         <span class="text">Ürün Kontrol</span>
-                    </a>
-               </li>
-               <li>
                     <a href="stok_kontrol.php">
                          <i class='bx bxs-doughnut-chart'></i>
                          <span class="text">Stok Kontrol</span>
                     </a>
                </li>
+               <li>
+                    <a href="urun_kontrol.html">
+                         <i class='bx bxs-shopping-bag-alt'></i>
+                         <span class="text">Ürün Kontrol</span>
+                    </a>
+               </li>
                <li class="active">
-                    <a href="ürün_satis.html">
+                    <a href="urun_satis.php">
                          <i class='bx bxs-cart'></i>
                          <span class="text">Ürün Satış</span>
                     </a>
@@ -54,16 +54,16 @@
      <section id="content">
           <nav>
 			<i class='bx bx-menu' ></i>
-			<a href="#" class="nav-link">Categories</a>
+			<!-- <a href="#" class="nav-link">Categories</a> -->
 			<form action="#">
 				<div class="form-input">
-					<input type="search" placeholder="Search...">
-					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+					<!-- <input type="search" placeholder="Search...">
+					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button> -->
 				</div>
 			</form>
-               <i class='bx bxs-moon'></i>
+               <!-- <i class='bx bxs-moon'></i>
 			<input type="checkbox" id="switch-mode" hidden>
-			<label for="switch-mode" class="switch-mode"></label>
+			<label for="switch-mode" class="switch-mode"></label> -->
 		</nav>
           <main>
                <div class="head-title">
@@ -85,13 +85,61 @@
                          <div class="container">
                               <h1>Ürün Satış Sayfası</h1>
                               <form action="./php/satiscrud.php" method="POST">
-                                <div class="form-group">
+
+                              <div class="form-group">
                                   <label for="urunAdi">Ürün Adı</label>
-                                  <input type="text" id="urunAdi" name="urunAdi" required>
+                                  <select id="select_urunadi" name="selectAdi">
+                                  <?php 
+                                   
+                                   $servername = "localhost";
+                                   $username = "root";
+                                   $passwordserver = "";
+                                   $dbname = "gida_toptanci";
+
+                                   $conn = mysqli_connect($servername,$username,$passwordserver,$dbname);
+
+                                   $stoklistsql = "SELECT * FROM urunler";
+                                   $result = mysqli_query($conn,$stoklistsql);
+
+                                   if(mysqli_num_rows($result) > 0){
+                                        while($row = mysqli_fetch_assoc($result)){
+                                             echo "<option value='".$row["urun_adi"]."'>".$row["urun_adi"]."</option>";
+                                        }
+                                   }
+                                   ?>
+                                   </select>
                                 </div>
                                 <div class="form-group">
                                    <label for="urunFiyati">Kategori</label>
-                                   <input type="text" id="urunKategori" name="urunKategori" required>
+                                   <style>
+                                        select{
+                                             padding: 10px;
+                                             border: none;
+                                             border-radius: 5px;
+                                             width: 100%;
+                                             box-sizing: border-box;
+                                        }
+                                   </style>
+                                   <select name="selectKategori" id="select_kategori">
+                                   <?php 
+                                   
+                                   $servername = "localhost";
+                                   $username = "root";
+                                   $passwordserver = "";
+                                   $dbname = "gida_toptanci";
+
+                                   $conn = mysqli_connect($servername,$username,$passwordserver,$dbname);
+
+                                   $stoklistsql = "SELECT DISTINCT kategori FROM urunler";
+                                   $result = mysqli_query($conn,$stoklistsql);
+
+                                   if(mysqli_num_rows($result) > 0){
+                                        while($row = mysqli_fetch_assoc($result)){
+                                             echo "<option value='".$row["kategori"]."'>".$row["kategori"]."</option>";
+                                        }
+                                   }
+                                   ?>
+                                   </select>
                                  </div>
                                 <div class="form-group">
                                   <label for="urunAdeti">Ürün Adeti</label>
@@ -100,10 +148,6 @@
                                 <div class="form-group">
                                   <label for="urunFiyati">Ürün Fiyatı</label>
                                   <input type="text" id="urunFiyati" name="urunFiyat" required>
-                                </div>
-                                <div class="form-group">
-                                  <label for="toplamFiyat">Toplam Fiyat</label>
-                                  <input type="text" id="toplamFiyat" name="toplamFiyat" required>
                                 </div>
                                 <button type="submit" id="satisYapButton" name="satisYapButton">Satış Yap</button>
                               </form>

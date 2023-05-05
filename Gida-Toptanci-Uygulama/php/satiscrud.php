@@ -8,25 +8,27 @@ $dbname = "gida_toptanci";
 $conn = mysqli_connect($servername,$username,$passwordserver,$dbname);
 
 
-$urunAdi = $_POST["urunAdi"];
-$kategori = $_POST["urunKategori"];
+$urunAdi = $_POST["selectAdi"];
+$kategori = $_POST["selectKategori"];
 $urunAdet = $_POST["urunAdet"];
 $urunFiyat = $_POST["urunFiyat"];
-$toplamFiyat = $_POST["toplamFiyat"];
+$toplamFiyat = $urunAdet * $urunFiyat;
 
 
-// --------- Urun Ekleme ----------
+// --------- Urun satis ----------
 
 $insertSqlSorgu = "INSERT INTO satislar (urun_adi, kategori, urun_adet, urun_fiyat, toplam_fiyat) VALUES ('$urunAdi','$kategori','$urunAdet','$urunFiyat','$toplamFiyat')";
+$satissql = "UPDATE urunler SET stok_miktari = stok_miktari - '$urunAdet' WHERE urun_adi = '$urunAdi'";
 
 if(isset($_POST["satisYapButton"])){
     mysqli_query($conn,$insertSqlSorgu);
-    echo "urun basariyla satildi";
+    mysqli_query($conn,$satissql);
+    header("Location: http://localhost/Gida-Toptanci-Uygulama/urun_satis.php");
 }else{
-    echo "urun ekleme basariz.";
+    echo "urun satis basariz.";
 }
 
-$satissql = "UPDATE urunler SET stok_miktari = stok_miktari - '$urunAdet' WHERE urun_adi = '$urunAdi'";
-mysqli_query($conn,$satissql);
+
+
 
 ?>

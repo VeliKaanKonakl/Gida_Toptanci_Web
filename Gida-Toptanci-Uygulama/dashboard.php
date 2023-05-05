@@ -24,19 +24,19 @@
                     </a>
                </li>
                <li>
-                    <a href="ürün_kontrol.html">
-                         <i class='bx bxs-shopping-bag-alt'></i>
-                         <span class="text">Ürün Kontrol</span>
-                    </a>
-               </li>
-               <li>
                     <a href="stok_kontrol.php">
                          <i class='bx bxs-doughnut-chart'></i>
                          <span class="text">Stok Kontrol</span>
                     </a>
                </li>
                <li>
-                    <a href="ürün_satis.html">
+                    <a href="urun_kontrol.html">
+                         <i class='bx bxs-shopping-bag-alt'></i>
+                         <span class="text">Ürün Kontrol</span>
+                    </a>
+               </li>
+               <li>
+                    <a href="urun_satis.php">
                          <i class='bx bxs-cart'></i>
                          <span class="text">Ürün Satış</span>
                     </a>
@@ -56,10 +56,10 @@
 			<i class='bx bx-menu' ></i>
 			<!-- <a href="#" class="nav-link">Categories</a> -->
 			<form action="#">
-				 <div class="form-input">
+				 <!-- <div class="form-input">
 					<input type="search" placeholder="Search...">
 					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
-				</div>
+				</div> -->
 			</form>
                <i class='bx bxs-moon'></i>
 			<input type="checkbox" id="switch-mode" hidden>
@@ -184,7 +184,7 @@
 					<div class="head">
 						<h3>Son Satışlar</h3>
 					</div>
-					<table>
+					<table id= "myChart" >
 						<thead>
 							<tr>
 								<th>Urun Adi</th>
@@ -230,16 +230,12 @@
 					</table>
 				</div>
                     <!-- kaldirilsin -->
-              <div class="to-do">
-                    <canvas id="myChart"></canvas>
-                    </div>
-
                </div>
           </main>
      </section>
 
      <script src="js/dashboard.js"></script>
-     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+     <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
 
 </body>
 

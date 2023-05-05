@@ -22,13 +22,13 @@ $deleteSqlSorgu = "DELETE FROM urunler WHERE urun_adi = '$urunAdi' AND kategori 
 
 if(isset($_POST["urunEkleButton"])){
     mysqli_query($conn,$insertSqlSorgu);
-    echo "urun basariyla eklendi";
+    header("Location: http://localhost/Gida-Toptanci-Uygulama/urun_kontrol.html");
 }else if(isset($_POST["urunGuncelleButton"])){
     mysqli_query($conn,$updateSqlSorgu);
-    echo "urun guncelleme basarili";
+    header("Location: http://localhost/Gida-Toptanci-Uygulama/urun_kontrol.html");
 }else if(isset($_POST["urunSilButton"])){
     mysqli_query($conn,$deleteSqlSorgu);
-    echo "urun silme basarili";
+    header("Location: http://localhost/Gida-Toptanci-Uygulama/urun_kontrol.html");
 }else{
     echo "islem basariz.";
 }
